@@ -44,13 +44,24 @@ function nodeBalance(node){
 	return nodeHeight(node.left) - nodeHeight(node.right);
 }
 
-myTree.insert(10);
-myTree.insert(5);
-myTree.insert(20);
+function nodeRotateLeft(node){
+	const newRoot = node.right;
+	node.right = newRoot.left;
+	newRoot.left = node;
+	return newRoot;
+}
+
+function nodeRotateRight(node){
+	const newRoot = node.left;
+	node.left = newRoot.right;
+	newRoot.right = node;
+	return newRoot;
+}
+
+myTree.insert(1);
+myTree.insert(2);
 myTree.insert(3);
-myTree.insert(7);
-myTree.insert(15);
-myTree.insert(25);
+
 
 
 
