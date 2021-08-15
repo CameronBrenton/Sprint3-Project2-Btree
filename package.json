@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/CameronBrenton/Sprint3-Project2-Btree/issues"
   },
-  "homepage": "https://github.com/CameronBrenton/Sprint3-Project2-Btree#readme"
+  "homepage": "https://github.com/CameronBrenton/Sprint3-Project2-Btree#readme",
+  "dependencies": {
+    "treeify": "^1.1.0"
+  }
 }
