@@ -33,6 +33,20 @@ class AVLTree {
 		}
 		this.root = recursiveHelper(this.root);
 	}
+	search(value){
+		const recursiveSearchHelper = (node) => {
+			if(node === null) {
+				return false;
+			}else if(value < node.value){
+				return recursiveHelper(node.left);
+			}else if (value > node.value){
+				return recursiveHelper(node.right);
+			}else{
+				return true;
+			}
+		}
+		return recursiveSearchHelper(this.root)
+	}
 }
 
 const myTree = new AVLTree();
