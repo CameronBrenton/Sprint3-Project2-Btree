@@ -8,5 +8,11 @@ class AVLTreeNode {
 	}
 }
 class AVLTree {
+	constructor(root = null) {
+		this.root = root;
+	}
+}
 
-} 
+const tree = new AVLTree();
+
+console.log(treeify.asTree(tree, false));
