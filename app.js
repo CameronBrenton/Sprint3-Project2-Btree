@@ -12,28 +12,37 @@ class AVLTree {
 		this.root = root;
 	}
 	insert(value){
-		if(this.root === null){
-			this.root = new AVLTreeNode(value);
-		}
 		const recursiveHelper = (node) => {
-			if(value < node.value) {
-				if(node.left === null) {
-					node.left = new AVLTreeNode(value);
-				}else{
-					recursiveHelper(node.left);
-				}
-			}else if(value > node.value){
-				if(node.right === null){
-					node.right = new AVLTreeNode(value);
-				}else{
-					recursiveHelper(node.right);
-				}
+			if(node === null) {
+				return new AVLTreeNode(value);
+			}else if(value < node.value) {
+				node.left = recursiveHelper(node.left);
+			}else if(value > node.value) {
+				node.right = recursiveHelper(node.right);
+			}else{
+				throw new Error("Inserts into our AVLTree cannot be equal!")
 			}
+			return node;
 		}
-		recursiveHelper(this.root);
+		this.root = recursiveHelper(this.root);
 	}
 }
 
 const myTree = new AVLTree();
 
+function nodeHeight(node){
+	if(node === null) {
+		return -1;
+	}else if(node.left === null && node.right === null){
+		return 0;
+	}else{
+		return 1 + Math.max(nodeHeight(node.left), nodeHeight(node.right));
+	}
+}
+
+function nodeBalance(node){
+	return nodeHeight(node.left) - nodeHeight(node.right);
+}
+
+console.log(JSON.stringify(myTree, null, 2));
 console.log(treeify.asTree(myTree, false));
