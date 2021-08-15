@@ -12,7 +12,15 @@ class AVLTree {
 		this.root = root;
 	}
 	insert(value){
+		if(this.root === null){
+			this.root = new AVLTreeNode(value);
+		}
+		const node = this.root;
+		if(node.value < value){
 
+		}else if(node.value > value){
+			
+		}
 	}
 }
 
