@@ -44,5 +44,17 @@ function nodeBalance(node){
 	return nodeHeight(node.left) - nodeHeight(node.right);
 }
 
-console.log(JSON.stringify(myTree, null, 2));
+myTree.insert(10);
+myTree.insert(5);
+myTree.insert(20);
+myTree.insert(3);
+myTree.insert(7);
+myTree.insert(15);
+myTree.insert(25);
+
+
+
+//console.log(JSON.stringify(myTree, null, 2));
 console.log(treeify.asTree(myTree, false));
+console.log(nodeHeight(myTree.root));
+console.log(nodeBalance(myTree.root));
