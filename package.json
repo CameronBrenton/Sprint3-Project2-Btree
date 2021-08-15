@@ -1,0 +1,19 @@
+{
+  "name": "aug-15-project2tree",
+  "version": "1.0.0",
+  "description": "Project 2 of Sprint 3: Creating a self-balancing AVL Tree",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CameronBrenton/Sprint3-Project2-Btree.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CameronBrenton/Sprint3-Project2-Btree/issues"
+  },
+  "homepage": "https://github.com/CameronBrenton/Sprint3-Project2-Btree#readme"
+}
