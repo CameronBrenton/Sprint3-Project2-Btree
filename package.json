@@ -4,7 +4,8 @@
   "description": "Project 2 of Sprint 3: Creating a self-balancing AVL Tree",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
