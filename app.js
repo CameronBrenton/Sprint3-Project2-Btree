@@ -22,7 +22,12 @@ class AVLTree {
 			}else{
 				throw new Error("Inserts into our AVLTree cannot be equal!")
 			}
-			return node;
+			
+			if(nodeBalance(node) > 1) {
+				return rotateLeft(node);
+			}else if(nodeBalance(node) < -1) {
+				return rotateRight(node);
+			}
 		}
 		this.root = recursiveHelper(this.root);
 	}
@@ -45,6 +50,9 @@ function nodeBalance(node){
 }
 
 function nodeRotateLeft(node){
+	if(node === null || node.right === null){
+		return null;
+	}
 	const newRoot = node.right;
 	node.right = newRoot.left;
 	newRoot.left = node;
@@ -52,6 +60,9 @@ function nodeRotateLeft(node){
 }
 
 function nodeRotateRight(node){
+	if(node === null || node.left === null){
+		return null;
+	}
 	const newRoot = node.left;
 	node.left = newRoot.right;
 	newRoot.right = node;
@@ -62,10 +73,14 @@ myTree.insert(1);
 myTree.insert(2);
 myTree.insert(3);
 
+console.log(treeify.asTree(myTree, true));
+console.log(JSON.stringify(myTree, null, 2));
+console.log(nodeHeight(myTree.root));
+console.log(nodeBalance(myTree.root));
 
+myTree.root = nodeRotateLeft(myTree.root);
 
-
-//console.log(JSON.stringify(myTree, null, 2));
-console.log(treeify.asTree(myTree, false));
+console.log(treeify.asTree(myTree, true));
+console.log(JSON.stringify(myTree, null, 2));
 console.log(nodeHeight(myTree.root));
 console.log(nodeBalance(myTree.root));
