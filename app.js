@@ -11,8 +11,11 @@ class AVLTree {
 	constructor(root = null) {
 		this.root = root;
 	}
+	insert(value){
+
+	}
 }
 
-const tree = new AVLTree();
+const myTree = new AVLTree();
 
-console.log(treeify.asTree(tree, false));
+console.log(treeify.asTree(myTree, false));
