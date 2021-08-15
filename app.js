@@ -24,9 +24,11 @@ class AVLTree {
 			}
 			
 			if(nodeBalance(node) > 1) {
-				return rotateLeft(node);
-			}else if(nodeBalance(node) < -1) {
-				return rotateRight(node);
+				return nodeRotateLeft(node);
+			}else if(nodeBalance < -1) {
+				return nodeRotateRight(node);
+			}else{
+				return node;
 			}
 		}
 		this.root = recursiveHelper(this.root);
@@ -43,15 +45,17 @@ function nodeHeight(node){
 	}else{
 		return 1 + Math.max(nodeHeight(node.left), nodeHeight(node.right));
 	}
+	
+
 }
 
 function nodeBalance(node){
-	return nodeHeight(node.left) - nodeHeight(node.right);
+	return nodeHeight(node.right) - nodeHeight(node.left);
 }
 
 function nodeRotateLeft(node){
 	if(node === null || node.right === null){
-		return null;
+		return node;
 	}
 	const newRoot = node.right;
 	node.right = newRoot.left;
@@ -61,7 +65,7 @@ function nodeRotateLeft(node){
 
 function nodeRotateRight(node){
 	if(node === null || node.left === null){
-		return null;
+		return node;
 	}
 	const newRoot = node.left;
 	node.left = newRoot.right;
@@ -69,16 +73,18 @@ function nodeRotateRight(node){
 	return newRoot;
 }
 
+
+
 myTree.insert(1);
 myTree.insert(2);
 myTree.insert(3);
-
-console.log(treeify.asTree(myTree, true));
-console.log(JSON.stringify(myTree, null, 2));
-console.log(nodeHeight(myTree.root));
-console.log(nodeBalance(myTree.root));
-
-myTree.root = nodeRotateLeft(myTree.root);
+myTree.insert(4);
+myTree.insert(5);
+myTree.insert(6);
+myTree.insert(7);
+myTree.insert(8);
+myTree.insert(9);
+myTree.insert(10);
 
 console.log(treeify.asTree(myTree, true));
 console.log(JSON.stringify(myTree, null, 2));
