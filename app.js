@@ -8,6 +8,8 @@ class AVLTreeNode {
 
 let n = new AVLTreeNode(100);
 let n2 = new AVLTreeNode(200, n);
+let n3 = new AVLTreeNode(300, null, n2);
 
 console.log(n);
 console.log(n2);
+console.log(n3);
