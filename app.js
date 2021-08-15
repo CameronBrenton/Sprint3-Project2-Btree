@@ -15,12 +15,22 @@ class AVLTree {
 		if(this.root === null){
 			this.root = new AVLTreeNode(value);
 		}
-		const node = this.root;
-		if(node.value < value){
-
-		}else if(node.value > value){
-			
+		const recursiveHelper = (node) => {
+			if(value < node.value) {
+				if(node.left === null) {
+					node.left = new AVLTreeNode(value);
+				}else{
+					recursiveHelper(node.left);
+				}
+			}else if(value > node.value){
+				if(node.right === null){
+					node.right = new AVLTreeNode(value);
+				}else{
+					recursiveHelper(node.right);
+				}
+			}
 		}
+		recursiveHelper(this.root);
 	}
 }
 
