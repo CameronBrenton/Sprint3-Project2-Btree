@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/CameronBrenton/Sprint3-Project2-Btree#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.3",
     "treeify": "^1.1.0"
   }
 }
