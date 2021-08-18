@@ -4,7 +4,10 @@
   "description": "Project 2 of Sprint 3: Creating a self-balancing AVL Tree",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:cover": "jest --coverage",
+    "test:unit": "jest __tests__/unit",
+    "test:integration": "jest __tests__/integration",
     "start": "node app.js"
   },
   "repository": {
@@ -19,6 +22,7 @@
   "homepage": "https://github.com/CameronBrenton/Sprint3-Project2-Btree#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "jest": "^27.0.6",
     "nunjucks": "^3.2.3",
     "treeify": "^1.1.0"
   }
