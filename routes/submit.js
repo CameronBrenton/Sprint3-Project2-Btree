@@ -2,21 +2,24 @@ const express = require('express');
 const router = express.Router();
 const treeify = require('treeify');
 
-router.post('/', function (req, res) {
-	let results = req.body.NumberInput
-	.then(function(result){
-	results = result.map(function(num){
-        return myTree.insert(num);
-	})
-})
-
-	console.log(result)
-	
-	res.render('results.njk', {
-		results: result
-	});
+router.post('/', async function (req, res) {
+	let results = await req.body.NumberInput;
+	results = results.split(',');
+	//console.log(results)
+	let myTree = new AVLTree();
+	for (let i = 0; i < results.length; i++) {
+		myTree.insert(results[i]);
+	}
+	//res.send(treeify.asTree(myTree, true));
+	res.send(JSON.stringify(myTree, true, 2));
+	console.log(treeify.asTree(myTree, true));
 });
 
+let insertIntoTree = () => {
+	
+}
+
+		
 class AVLTreeNode {
 	constructor(value, left = null, right = null) {
 		this.value = value;
@@ -66,8 +69,6 @@ class AVLTree {
 	}
 }
 
-const myTree = new AVLTree();
-
 function nodeHeight(node){
 	if(node === null) {
 		return -1;
@@ -105,8 +106,16 @@ function nodeRotateRight(node){
 }
 
 
-
-//myTree.insert(5);
+/*
+myTree.insert(5);
+myTree.insert(3);
+myTree.insert(7);
+myTree.insert(2);
+myTree.insert(4);
+myTree.insert(6);
+myTree.insert(8);
+myTree.insert(9);
+*/
 
 //console.log(treeify.asTree(myTree, true));
 //console.log(JSON.stringify(myTree, null, 2));
@@ -116,5 +125,7 @@ function nodeRotateRight(node){
 //console.log(myTree.search(11));
 
 
-
-module.exports = router;
+module.exports = {
+	router,
+	insertIntoTree
+}
