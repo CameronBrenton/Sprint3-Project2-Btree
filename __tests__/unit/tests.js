@@ -1,9 +1,10 @@
-const { insertIntoTree } = require('../../routes/submit')
+const { AVLTree, AVLTreeNode } = require('../../routes/submit')
+
 
 
 describe("Insert Test", () => {
 	it('This test should show that the insert function is operating succsesfully', () => {
-		expect.insertIntoTree()
+		
 	})
 })
 
