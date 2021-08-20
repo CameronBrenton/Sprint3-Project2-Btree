@@ -127,5 +127,6 @@ myTree.insert(9);
 
 module.exports = {
 	router,
-	insertIntoTree
+	AVLTreeNode,
+	AVLTree
 }
