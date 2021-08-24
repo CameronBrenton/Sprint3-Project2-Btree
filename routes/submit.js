@@ -3,21 +3,18 @@ const router = express.Router();
 const treeify = require('treeify');
 
 router.post('/', async function (req, res) {
-	let results = await req.body.NumberInput;
+	let results = await req.body.numberInput;
 	results = results.split(',');
-	//console.log(results)
 	let myTree = new AVLTree();
 	for (let i = 0; i < results.length; i++) {
 		myTree.insert(results[i]);
+		console.log(results[i]);
 	}
-	//res.send(treeify.asTree(myTree, true));
 	res.send(JSON.stringify(myTree, true, 2));
 	console.log(treeify.asTree(myTree, true));
 });
 
-let insertIntoTree = () => {
-	
-}
+
 
 		
 class AVLTreeNode {
@@ -95,8 +92,8 @@ function nodeRotateLeft(node){
 	return newRoot;
 }
 
-function nodeRotateRight(node){
-	if(node === null || node.left === null){
+function nodeRotateRight(node) {
+	if (node === null || node.left === null) {
 		return node;
 	}
 	const newRoot = node.left;
@@ -106,27 +103,6 @@ function nodeRotateRight(node){
 }
 
 
-/*
-myTree.insert(5);
-myTree.insert(3);
-myTree.insert(7);
-myTree.insert(2);
-myTree.insert(4);
-myTree.insert(6);
-myTree.insert(8);
-myTree.insert(9);
-*/
-
-//console.log(treeify.asTree(myTree, true));
-//console.log(JSON.stringify(myTree, null, 2));
-//console.log(nodeHeight(myTree.root));
-//console.log(nodeBalance(myTree.root));
-//console.log(myTree.search(5));
-//console.log(myTree.search(11));
-
-
-module.exports = {
-	router,
-	AVLTreeNode,
-	AVLTree
+if (module) {
+    module.exports = router, AVLTree, AVLTreeNode;
 }
